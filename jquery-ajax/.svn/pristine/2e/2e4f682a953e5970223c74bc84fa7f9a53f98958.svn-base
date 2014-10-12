@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+
+
+<meta charset="utf-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">    
+<title>jQuery - Ajax - 01</title>
+
+<style>
+*{ font-family:"微软雅黑"}
+#d1{ background-color:#C86869; width:400px; height:100px; border-radius: 10px;}
+#d2{ background-color:#96868C; width:400px; height:100px; border-radius: 10px;}
+#d3{ background-color:#AC848C; width:400px; height:100px; border-radius: 10px;}
+</style>
+
+<script type="text/javascript" src="../js/jquery-2.1.1.js"></script>
+<script>
+
+$(function(){
+	
+	/* 简单页面异步加载 , 实用性很好*/
+	$('#btn1').click(function(){
+	
+		$('#d1').load('/jquery-ajax/loading/simple_01.html');
+		
+		$('#d2').load('/jquery-ajax/loading/simple_01.jsp?name=jQuery');
+		
+		$('#d3').load('/jquery-ajax/loading/simple_01.html#part');
+	});
+	
+	
+		/*******************/
+	$('#email').blur(function(){
+		var url = '/jquery-ajax/servlet/JQ_SimpleServlet_01';
+		
+		$('#email').next('label').load(
+			url , 
+			{email : $('#email').val()} , 
+			function(responseText , textStatus , xhr) { //callback
+				//alert(responseText + " : "+textStatus+" : "+ xhr.statusText); /***xhr.statusText --> 200 , 400 , 401 , 500 .....****/
+				
+			}
+		);
+	});
+	
+});
+
+</script>
+
+</head>
+
+<body>
+	<button id="btn1">异步加载页面 - html </button>
+	<div id="d1"></div>
+	<div id="d2"></div>
+    <div id="d3"></div>
+    
+ 	<br><hr>
+    
+  
+    请输入Email : ('jquery') : <input type="text" id="email" /><label></label>
+    	
+    	<br><br>
+    
+    
+</body>
+</html>
+

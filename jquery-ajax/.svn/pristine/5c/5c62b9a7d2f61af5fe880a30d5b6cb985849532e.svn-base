@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>post_and_get.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../js/jquery-2.1.1.js"></script>
+    <script type="text/javascript">
+  	$(function(){
+  	
+	/*************************/
+	$('#first').change(function(){
+		var url = '/jquery-ajax/servlet/JQ_SelectServlet';
+		$.post(   //get 也可以
+			url , 
+			{key : $(this).val()},
+			function(response , status , xhr) {
+		
+				var json = $.parseJSON(response) ; //var data = eval('('+xhr.responseText+')'); //["和平区","南开区","滨海新区"]
+				$('#second').empty();
+				
+				$.each( json	, function(index , data){   // each   .......  
+					$('#second').append('<option>'+data+'</option>');
+				});
+			} , 'html' ); // 'html' 说明返回的格式
+		});
+	
+  	})
+    </script>
+
+  </head>
+  
+  <body>
+   <div>
+    
+        
+        <label>二级下拉选框</label>
+        <select id="first">
+        	<option>--</option>
+        	<option>天津市</option>
+            <option>北京市</option>
+        </select>
+        <select id="second"></select>
+    </div>
+    
+  </body>
+</html>
