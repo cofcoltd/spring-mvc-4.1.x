@@ -3,7 +3,7 @@ package com.dao;
 import java.util.Date;
 import java.util.List;
 
-import javax.websocket.server.ServerEndpoint;
+import javax.naming.InitialContext;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONSerializer;
@@ -17,6 +17,7 @@ public class EmpDao extends DaoSupport{
 	
 	
 	public List<Emp> getEmps() {
+		
 		String sql = "select * from emp";
 		List<Emp> emps = executeQuery(sql, Emp.class, null);
 		return emps;

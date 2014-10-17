@@ -32,8 +32,6 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json-lib-2.2.3-jdk15.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/morph-1.1.1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/mysql-connector-java-5.0.8-bin.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/tomcat7-websocket.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/websocket-api.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xom1.1.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>
