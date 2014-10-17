@@ -34,10 +34,10 @@
 		<c:forEach var="book" items="${books}">
 			<tr>
 				<td>${book.value.id }</td>
-				<td>${book.value.name }</td>
+				<td><a href="${pageContext.request.contextPath}/appointmentBook/${book.key}">${book.value.name }</a></td>
 				<td>${book.value.time }</td>
 				<td>${book.value.content }</td>
-				<td><a href="#">remove this book</a></td>
+				<td><a href="${pageContext.request.contextPath}/appointmentBook/${book.key}/delete">remove this book</a></td>
 			</tr>
 		</c:forEach>
 	</table>
