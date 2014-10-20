@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.method.annotation.SessionAttributesHandler;
 
 import com.exception.AdminException;
 import com.model.Admin;
@@ -37,28 +39,44 @@ public class AdminController {
 	
 	@RequestMapping(value={"/"} , method=RequestMethod.GET)
 	public String login(Model model) {
-		model.addAttribute(admin);
-		System.out.println("µÇÂ¼Ò³Ãæ");
 		return "admin/login";
 	}
 	
 
 	@RequestMapping(value="/login" , method=RequestMethod.GET)
-	public String login(Admin admin , Model model) {
-		System.out.println("´¦ÀíµÇÂ¼");
-		if(admins.contains(admin)) {
-			model.addAttribute("admin" , admin );
+	public String login(@ModelAttribute("admin") Admin admin , Model model , SessionStatus status) {
+		Admin success = getAdmin(admin.getName(), admin.getPwd());
+		
+		//SessionAttributesHandler().
+		if(success !=null ) {
+			admin = success;
 			return "redirect:/index.jsp";
 		} else {
-			throw new AdminException("invidate admin message . ");
+			status.setComplete();
+			//throw new AdminException("invidate admin message . ");
+			return "redirect:/index.jsp";
 		}
 		
 	}
 	
 	@ExceptionHandler(value=(AdminException.class))
-	public String handlerException(Exception ex , Model model) {
-		model.addAttribute("error", ex.getMessage());
+	public String handlerException(Exception e , Model model) {
+		model.addAttribute("error", e.getMessage());
 		return "admin/error";
+	}
+	
+	
+	public Admin getAdmin(String name , String pwd) {
+		
+		Admin flag = null;
+		
+		for (Admin admin : admins) {
+			if(name.equals(admin.getName()) && pwd.equals(admin.getPwd())) {
+				flag =  admin;
+				break;
+			}
+		}
+		return flag;
 	}
 	
 }
