@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 
 <%
@@ -25,20 +25,18 @@
 
 <body>
 
+<br><br><br>
 
-	<c:forEach var="name" items="${pageContext.request.attributeNames }">
-	<p>${name} : </p>
-</c:forEach>
 
-	
-	
-	<sf:form  method="post" modelAttribute="appointmentBook" action="${pageContext.request.contextPath}/appointmentBook/${bookname}/update">
+
+	<sf:form method="post" modelAttribute="appointmentBook" 
+		action="${pageContext.request.contextPath}/appointmentBook/${bookname}/update">
 		<fieldset>
 			<legend>update your appointmentBook</legend>
 			<table>
 				<tr>
 					<td>name :</td>
-					<td><sf:input  path="name" /></td>
+					<td><sf:input path="name" /></td>
 				</tr>
 				<tr>
 					<td>time :</td>
@@ -55,6 +53,14 @@
 			</table>
 		</fieldset>
 	</sf:form>
+
+	<hr>
+	<br>
+	<br>
+
+	<c:forEach var="name" items="${pageContext.request.attributeNames }">
+		<p>${name}:</p>
+	</c:forEach>
 
 </body>
 </html>

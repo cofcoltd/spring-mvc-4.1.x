@@ -22,6 +22,9 @@
 </head>
 
 <body>
+<p><a href="${pageContext.request.contextPath}/index.jsp">back</a></p>
+<br>
+<hr>
 	<table border="1" bgcolor="#fff0c9" align="center">
 		<tr>
 			<td>id</td>

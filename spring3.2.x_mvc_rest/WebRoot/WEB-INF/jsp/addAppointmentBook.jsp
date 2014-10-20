@@ -24,6 +24,8 @@
 
 <body>
 
+	<p><a href="${pageContext.request.contextPath}/index.jsp">back</a></p>
+
 	<sf:errors path="name"></sf:errors>
 	<sf:errors path="time"></sf:errors>
 	<sf:errors path="content"></sf:errors>

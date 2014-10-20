@@ -34,6 +34,7 @@ public class AppointmentBookController {
 	
 	@RequestMapping(value="/add" , method=RequestMethod.GET)
 	public String addBooks(Model model) {
+		//预留新对象空间
 		model.addAttribute(new AppointmentBook());
 		return "addAppointmentBook";
 	}
@@ -41,16 +42,14 @@ public class AppointmentBookController {
 	@RequestMapping(value="/add" , method=RequestMethod.POST)
 	public String addBooks(@Valid AppointmentBook appointmentBook , BindingResult result) {
 		if(result.hasErrors()) {
-			System.out.println("有错");
-			return "appointmentBook/add";
+			return "addAppointmentBook";
 		}
-		System.out.println("没错");
 		books.put("nickname", appointmentBook);
 		return "redirect:/appointmentBook/appointmentBooks";
 	}
 	
 	@RequestMapping(value="/{bookname}" , method=RequestMethod.GET)
-	public String getBook(@PathVariable String bookname , Model model) {
+	public String getBook(@PathVariable(value="bookname") String bookname , Model model) {
 		model.addAttribute(new AppointmentBook());
 		model.addAttribute(books.get(bookname));
 		model.addAttribute("bookname", bookname);
@@ -58,18 +57,18 @@ public class AppointmentBookController {
 	}
 	
 	@RequestMapping(value="/{bookname}/update" , method=RequestMethod.POST)
-	public String updateBook(@PathVariable String bookname ,@Valid AppointmentBook appointmentBook  , Model model ) {
+	public String updateBook(@PathVariable(value="bookname") String bookname ,@Valid AppointmentBook appointmentBook  , Model model ) {
 	
 		books.put( bookname, appointmentBook);
 		return "redirect:/appointmentBook/appointmentBooks";
 	}
 	
 	@RequestMapping(value="/{bookname}/delete" , method=RequestMethod.GET)
-	public String removeBook(@PathVariable String bookname ) {
+	public String removeBook(@PathVariable(value="bookname") String bookname ) {
+		System.out.println("即将删除 : " + bookname);
 		books.remove(bookname);
 		return "redirect:/appointmentBook/appointmentBooks";
 	}
-	
 	
 
 }
