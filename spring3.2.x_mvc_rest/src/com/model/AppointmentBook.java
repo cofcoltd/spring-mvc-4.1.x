@@ -40,13 +40,10 @@ public class AppointmentBook {
 		return name;
 	}
 	
-	
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	@NotEmpty(message="books name is not null")
-	@Size(min=2,max=10 , message = "invalidate range")
 	public String getTime() {
 		return time;
 	}
@@ -54,8 +51,7 @@ public class AppointmentBook {
 	public void setTime(String time) {
 		this.time = time;
 	}
-	@NotEmpty(message="books name is not null")
-	@Size(min=2,max=10 , message = "invalidate range")
+
 	public String getContent() {
 		return content;
 	}
