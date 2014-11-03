@@ -62,7 +62,7 @@ public class AdminController {
 	@ExceptionHandler(value=(AdminException.class))
 	public String handlerException(Exception e , Model model) {
 		model.addAttribute("error", e.getMessage());
-		return "admin/error";
+		return "redirect:/index.jsp";
 	}
 	
 	

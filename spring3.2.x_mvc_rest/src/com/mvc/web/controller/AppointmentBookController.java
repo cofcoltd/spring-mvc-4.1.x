@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +17,7 @@ import com.model.AppointmentBook;
 
 @Controller
 @RequestMapping("/appointmentBook")
+
 public class AppointmentBookController {
 	
 	private static Map<String , AppointmentBook> books = new HashMap<String , AppointmentBook>();
@@ -44,6 +46,7 @@ public class AppointmentBookController {
 		if(result.hasErrors()) {
 			return "addAppointmentBook";
 		}
+		System.out.println(appointmentBook.hashCode());
 		books.put("nickname", appointmentBook);
 		return "redirect:/appointmentBook/appointmentBooks";
 	}
@@ -57,8 +60,12 @@ public class AppointmentBookController {
 	}
 	
 	@RequestMapping(value="/{bookname}/update" , method=RequestMethod.POST)
-	public String updateBook(@PathVariable(value="bookname") String bookname ,@Valid AppointmentBook appointmentBook  , Model model ) {
-	
+	public String updateBook(
+				@PathVariable(value="bookname") String bookname ,
+				AppointmentBook appointmentBook  , 
+				Model model ) {
+		
+		System.out.println(appointmentBook.hashCode());
 		books.put( bookname, appointmentBook);
 		return "redirect:/appointmentBook/appointmentBooks";
 	}

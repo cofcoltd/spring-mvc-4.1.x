@@ -40,16 +40,6 @@ public class Admin {
 		this.pwd = pwd;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		Admin old = this;
-		Admin admin = (Admin) obj;
-		if (old.getName().equalsIgnoreCase(old.getName()) && old.getPwd().equalsIgnoreCase(admin.getPwd())) {
-			return true;
-		} else {
-			return false;
-		}
 
-	}
 
 }
