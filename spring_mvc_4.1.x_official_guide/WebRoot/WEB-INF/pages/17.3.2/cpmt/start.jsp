@@ -50,6 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			xhr2.open("post" , "${pageContext.request.contextPath}/cpmt/process" , true);
 			xhr2.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
+			
 			xhr2.onreadystatechange  = function() {
 				if(xhr2.status == 200 && xhr2.readyState ==4) {
 					alert(xhr2.responseText)

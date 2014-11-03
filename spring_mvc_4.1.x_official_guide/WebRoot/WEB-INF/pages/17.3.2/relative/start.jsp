@@ -32,7 +32,21 @@
 				request matching through request parameter </a>|| params = update ,
 			'type=1' ] (BUG, if url no change )</li>
 		<br>
-		<li><a href="">header values</a></li>
+		<li><button onclick="send_myheader()">header values</button></li>
+		<script>
+			function send_myheader() {
+				var xhr2 = new XMLHttpRequest();
+				
+				xhr2.open("post" , "${pageContext.request.contextPath}/relative/header" , true);
+				xhr2.setRequestHeader('myHeader', 'myValue');
+				xhr2.onreadystatechange  = function() {
+					if(xhr2.status == 200 && xhr2.readyState ==4) {
+						alert(xhr2.responseText)
+					}
+				}
+				xhr2.send();
+			}
+		</script>
 	</ul>
 </body>
 </html>
