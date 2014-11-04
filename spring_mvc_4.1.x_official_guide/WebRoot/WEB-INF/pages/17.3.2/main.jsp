@@ -22,6 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <ul>
     	<br><li><a href="${pageContext.request.contextPath}/template/">URI Template Patterns</a></li>
     	<br><li><a href="${pageContext.request.contextPath}/ant/">Path Patterns ( ANT )</a></li>
+    	<br><li><a href="${pageContext.request.contextPath}/suffix/">Path Pattern Matching By Suffix</a></li>
     	<br><li><a href="${pageContext.request.contextPath}/matrix/">Matrix Variables</a></li>
     	
     	<br><li><a href="${pageContext.request.contextPath}/cpmt/">CPMT ( Consumable/Producible  Media Types)</a></li>

@@ -20,7 +20,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   
+  	<h4>Path Pattern Matching By Suffix</h4>
   	
+  	<ul>
+  		<br><li><a href="${pageContext.request.contextPath}/suffix/process/tomas.pdf">*.pdf</a></li>
+  		
+  		<br><li><a href="${pageContext.request.contextPath}/suffix/process/person/321.pdf">/person/{personId}.pdf</a></li>
+  	</ul>
 
   </body>
 </html>
