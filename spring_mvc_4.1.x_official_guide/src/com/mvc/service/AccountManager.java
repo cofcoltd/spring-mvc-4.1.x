@@ -3,16 +3,11 @@ package com.mvc.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.mvc.pojo.Account;
 
 public class AccountManager {
 	
 	private static List<Account> accounts = new ArrayList<Account>();
-	
-	@Autowired
-	private Account account;
 	
 	static {
 		accounts.add(new Account(1, "admin", "admin"));

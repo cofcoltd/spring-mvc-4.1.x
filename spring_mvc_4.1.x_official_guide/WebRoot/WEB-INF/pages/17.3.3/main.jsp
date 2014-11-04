@@ -31,6 +31,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		
   		<br><li><a href='${pageContext.request.contextPath}/modelAttr/'>Using @ModelAttribute on a method (argument)</a></li>
   		
+  		<br><li><a href='${pageContext.request.contextPath}/sessionAttr/'>Using @SessionAttributes to store model attributes in the HTTP session between requests</a></li>
+  		
   		<br><li><a href='${pageContext.request.contextPath}/cookieValue/'>Mapping cookie values with the @CookieValue annotation</a></li>
   		
   		<br><li><a href='${pageContext.request.contextPath}/headerAttr/'>Mapping request header attributes with the @RequestHeader annotation</a></li>
