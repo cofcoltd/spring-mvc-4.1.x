@@ -27,4 +27,14 @@ public class AccountManager {
 		accounts.add(account);
 	}
 	
+	public Account getAccount(int id) {
+		Account account = null;
+		for (Account a : accounts) {
+			if(id == a.getId())
+				account = a;
+				break;
+		}
+		return account;
+	}
+	
 }

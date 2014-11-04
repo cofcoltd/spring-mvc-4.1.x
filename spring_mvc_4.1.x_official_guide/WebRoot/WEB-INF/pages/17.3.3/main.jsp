@@ -14,11 +14,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
 
   </head>
   
@@ -28,6 +23,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<br><li><a href='${pageContext.request.contextPath}/methodArgumentType/'>Supported method argument types</a></li>
     	
   		<br><li><a href='${pageContext.request.contextPath}/methodParams/'>Binding request parameters to method parameters with @RequestParam</a></li>
+  		
+  		<br><li><a href='${pageContext.request.contextPath}/responseBody/'>Mapping the response body with the @ResponseBody annotation</a></li>
+  		
   		
   		<br><li><a href='${pageContext.request.contextPath}/modelAttr/'>Using @ModelAttribute on a method (argument)</a></li>
   		

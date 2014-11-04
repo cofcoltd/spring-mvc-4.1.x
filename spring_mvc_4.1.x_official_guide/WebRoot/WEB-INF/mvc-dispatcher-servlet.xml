@@ -11,6 +11,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<mvc:annotation-driven enable-matrix-variables="true" content-negotiation-manager="contentNegotiationManager">
+		
 	</mvc:annotation-driven>
 
 	<context:component-scan base-package="com.mvc.web.*"></context:component-scan>
@@ -26,18 +27,40 @@
     </property>
 </bean>
 	
-	<bean
-		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="synchronizeOnSession" value="true"></property>
+		<property name="messageConverters">
+			<list>
+				<ref bean="stringHttpMessageConverter" />
+                <!-- <ref bean="jsonHttpMessageConverter" /> -->
+				<ref bean="marshallingHttpMessageConverter" />
+			</list>
+		</property>
 	</bean>
+	
+	<!-- string message -->
+	<bean id="stringHttpMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter" /> 
+	<!-- json -->
+	<!-- <bean id="jsonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" /> -->
+	<!-- xml start-->
+	<bean id="marshallingHttpMessageConverter"  class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
+		<constructor-arg ref="jaxbMarshaller"></constructor-arg>
+		<property name="supportedMediaTypes" value="application/xml"></property>
+	</bean>
+	<bean id="jaxbMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+        <property name="classesToBeBound">
+            <list>
+                <value>com.mvc.pojo.Account</value>
+            </list>
+        </property>
+	</bean>
+<!-- xml end -->
 
-	<bean
-		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
 		<property name="removeSemicolonContent" value="false"></property>
 	</bean>
 
-	<bean
-		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 	</bean>
 
 
