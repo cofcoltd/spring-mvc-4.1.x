@@ -40,16 +40,17 @@ public class ResponseBodyController {
 		return accountManager.getAccount(accountId);
 	}
 
-	// application/xml
-
-	@RequestMapping(value = "/account/{accountId}/update", produces = "application/xml", method = RequestMethod.POST)
+	// application/xml 
+	@RequestMapping(value = "/account/{accountId}/update", produces = "application/xml" , method = RequestMethod.POST) // produces = "application/xml"
 	public @ResponseBody
 	Account getAccount_xml(@PathVariable("accountId") int accountId) {
 		System.out.println("xml");
-		return accountManager.getAccount(accountId);
+		Account account = accountManager.getAccount(accountId);
+		return account;
 	}
 
-	@RequestMapping(value = "/account/map", method = RequestMethod.POST)
+	//ParameterizedTypeReference
+	@RequestMapping(value = "/account/map",produces = "application/json", method = RequestMethod.POST)
 	public @ResponseBody Map<String, ? extends Object> getMap() {
 		
 		Map<String , Account> maps = new HashMap<String , Account>();

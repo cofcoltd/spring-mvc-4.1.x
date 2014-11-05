@@ -35,6 +35,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		
   		<br><li><a href='${pageContext.request.contextPath}/headerAttr/'>Mapping request header attributes with the @RequestHeader annotation</a></li>
   		
+  		<br><li><a href='${pageContext.request.contextPath}/last/checkServer'>Support for the 'Last-Modified' Response Header To Facilitate Content Caching</a></li>
+  		
     </ul>
   </body>
 </html>
