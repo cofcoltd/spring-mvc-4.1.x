@@ -31,6 +31,7 @@ public class SessionAttributesController {
 		return "17.3.3/sessionAttribute/start";
 	}
 	
+	@SuppressWarnings("static-access")
 	@ModelAttribute("datas") 
 	public List<Pet> initPets(){
 		return petManager.getPets();

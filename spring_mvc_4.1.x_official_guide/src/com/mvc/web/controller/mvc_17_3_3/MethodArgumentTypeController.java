@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.request.NativeWebRequest;
+import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.WebRequest;
 
 @Controller
@@ -46,7 +47,7 @@ public class MethodArgumentTypeController {
 			NativeWebRequest nativeWebRequest) {
 
 		webRequest.setAttribute("msg", "web request and nativeWebRequest",
-				webRequest.SCOPE_SESSION);
+				RequestAttributes.SCOPE_SESSION);
 		
 		return start();
 	}
