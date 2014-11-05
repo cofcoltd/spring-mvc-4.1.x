@@ -1,15 +1,9 @@
 package com.mvc.web.controller.mvc_17_3_3;
 
-import javax.annotation.Generated;
-
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
-import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
-import org.springframework.web.servlet.support.WebContentGenerator;
 
 @Controller
 @RequestMapping("/last")

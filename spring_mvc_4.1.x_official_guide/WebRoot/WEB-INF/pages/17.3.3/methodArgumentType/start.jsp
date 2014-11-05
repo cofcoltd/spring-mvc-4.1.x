@@ -27,5 +27,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<br><li><a href="${pageContext.request.contextPath}/methodArgumentType/webRequest">WebRequest and NativeWebRequest</a></li>
     	<br><li><a href="${pageContext.request.contextPath}/methodArgumentType/session">HttpSession </a></li>		
     </ul>
+    
+    <hr>
+    ${emp.name} / ${emp.age }
+    <form action="${pageContext.request.contextPath}/methodArgumentType/emp/add" method="post">
+    	name : <input name="name"><br>
+    	age : <input name="age"><br>
+    	<input type="submit" />
+    </form>
+    
   </body>
 </html>
