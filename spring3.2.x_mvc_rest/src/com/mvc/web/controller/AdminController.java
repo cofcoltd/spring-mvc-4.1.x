@@ -20,6 +20,7 @@ import com.model.Admin;
 @RequestMapping("/admin")
 @SessionAttributes(value={"admin"} , types={Admin.class})
 public class AdminController {
+	
 	Admin admin ;
 	private static List<Admin> admins = new ArrayList<Admin>();
 	

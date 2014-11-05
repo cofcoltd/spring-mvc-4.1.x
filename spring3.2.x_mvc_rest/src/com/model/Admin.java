@@ -1,5 +1,7 @@
 package com.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Admin {
 
 	private int id;
